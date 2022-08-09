@@ -76,5 +76,5 @@ function Navbar() {
     </>
   )
 }
-//yoo
+//yo
 export default Navbar
