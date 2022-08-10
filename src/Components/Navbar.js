@@ -64,11 +64,6 @@ function Navbar() {
                   Contact
                 </Link>
               </li>
-              <li className='nav-item'>
-                <Link to='/sign-up' className='nav-links-moblie' onClick={closeMoblieMenu}>
-                  Sign up
-                </Link>
-              </li>
             </ul>
             {button && <Button buttonStyle='btn--outline'>Sign Up</Button>}
         </div>
