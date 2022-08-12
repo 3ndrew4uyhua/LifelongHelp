@@ -1,75 +1,70 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
-
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
-  const closeMoblieMenu = () => setClick(false);
+  const closeMobileMenu = () => setClick(false);
   
 /* toggling and resizing the button*/
-  const showButton = () => {
-    if(window.innerWidth <= 960) {
-      setButton(false)
-    } else{
-      setButton(true);
-    }
+const showButton = () => {
+  if (window.innerWidth <= 960) {
+    setButton(false);
+  } else {
+    setButton(true);
   }
+};
 
-  window.addEventListener('resize', showButton);
-/*/* toggling and resizing the button*/
+useEffect(() => {
+  showButton();
+}, []);
 
-  return (
-    <>
-    <nav className="navbar">
-        <div className="navbar-container">
-            <Link to="/" className="navbar-logo">
-                 Lifelong Help<i className="fab fa-typo3" />
-            </Link>
-            <div className="menu-icon" onClick={handleClick}>
-              <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-            </div>
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className='nav-item'>
-                <Link to='/' className='nav-links' onClick={closeMoblieMenu}>
-                  Home
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to='/ourWork' className='nav-links' onClick={closeMoblieMenu}>
-                  Our Work
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to='/getInvolved' className='nav-links' onClick={closeMoblieMenu}>
-                  Get involved
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to='/new-n-analytics' className='nav-links' onClick={closeMoblieMenu}>
-                  News and Analytics
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to='/About' className='nav-links' onClick={closeMoblieMenu}>
-                  About
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to='/Contact' className='nav-links' onClick={closeMoblieMenu}>
-                  Contact
-                </Link>
-              </li>
-            </ul>
-            {button && <Button buttonStyle='btn--outline'>Sign Up</Button>}
+window.addEventListener('resize', showButton);
+/* toggling and resizing the button*/
+
+return (
+  <>
+    <nav className='navbar'>
+      <div className='navbar-container'>
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          LifelongHelp
+          <i class='fab fa-typo3' />
+        </Link>
+        <div className='menu-icon' onClick={handleClick}>
+          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/our-work' className='nav-links' onClick={closeMobileMenu}>
+              Our Work
+            </Link>
+          </li>
+          <li className='nav-item'>
+            <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
+              about
+            </Link>
+          </li>
+
+          <li>
+            <Link to='/sign-up' className='nav-links-mobile'onClick={closeMobileMenu}>
+              Sign Up
+            </Link>
+          </li>
+        </ul>
+        {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+      </div>
     </nav>
-    </>
-  )
+  </>
+);
 }
-//yo
-export default Navbar
+
+export default Navbar;
