@@ -19,9 +19,11 @@ const showButton = () => {
   }
 };
 
+/*this is just useeffect for the button*/
 useEffect(() => {
   showButton();
 }, []);
+/*this is just useeffect for the button*/
 
 window.addEventListener('resize', showButton);
 /* toggling and resizing the button*/
