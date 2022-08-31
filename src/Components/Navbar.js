@@ -52,10 +52,9 @@ return (
           </li>
           <li className='nav-item'>
             <Link to='/about' className='nav-links' onClick={closeMobileMenu}>
-              about
+              About
             </Link>
           </li>
-
           <li>
             <Link to='/sign-up' className='nav-links-mobile'onClick={closeMobileMenu}>
               Sign Up
